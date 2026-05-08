@@ -80,8 +80,9 @@ public class MyDodo extends Dodo
     /**
      * Move given number of cells forward in the current direction.
      * 
-     * <p> Initial:   
-     * <p> Final:  
+     * <p> Initial: Distance filled is smaller than distance to the
+     *              nearest border
+     * <p> Final: Jumped towards given input cells in the same direction
      * 
      * @param   int distance: the number of steps made
      */
@@ -90,6 +91,9 @@ public class MyDodo extends Dodo
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
             move();                         // take a step
             nrStepsTaken++;                 // increment the counter
+            
+            // compliments steps taken
+            System.out.println ("moved " + nrStepsTaken + " cell(s) foward");
         }
     }
 
