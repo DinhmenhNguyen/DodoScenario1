@@ -130,4 +130,17 @@ public class MyDodo extends Dodo
             return true;
         }
     }
+    
+    /**
+     * Turn 180 degrees from current position
+     * 
+     * <p> Initial: Dodo is facing any direction in the world
+     * <p> Final: Dodo is facing the opposite direction from before
+     * 
+     */
+    
+    public void turn180( ){
+        turnRight();
+        turnRight();
+    }
 }
