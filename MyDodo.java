@@ -144,4 +144,28 @@ public class MyDodo extends Dodo
         turnRight();
         turnRight();
     }
+    
+    /**
+     * Jumps over a fence by turning and moving
+     * 
+     * <p> Initial: Dodo is facing a fence anywhere in the world
+     *              Dodo turns left and moves forward once
+     *              Dodo turns right and moves forward twice
+     *              Dodo turns right and moves forward once and turns left
+     * <p> Final: Dodo is on the opposite side of the fence from before
+     * 
+     */
+    
+    public void jumpOverFence( ) {
+        if ( fenceAhead() ) {
+            turnLeft();
+            move();
+            turnRight();
+            move();
+            move();
+            turnRight();
+            move();
+            turnLeft();
+        }
+    }
 }
