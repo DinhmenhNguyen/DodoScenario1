@@ -96,9 +96,6 @@ public class MyDodo extends Dodo
             System.out.println ("moved " + nrStepsTaken + " cell(s) foward");
         }
     }
-
-    
-    
     
     /**
      * Walks to edge of the world printing the coordinates at each step
@@ -110,7 +107,7 @@ public class MyDodo extends Dodo
 
     public void walkToWorldEdgePrintingCoordinates( ){
         while( ! borderAhead() ){
-            // print coordinates
+            System.out.println (super.getX()+ ", " + super.getY());
             move();
         }
     }
