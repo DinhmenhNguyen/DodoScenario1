@@ -168,4 +168,29 @@ public class MyDodo extends Dodo
             turnLeft();
         }
     }
+    
+    /**
+     * Checks if there is a grain ahead of the dodo by,
+     * walking forward and back
+     *
+     *    
+     * <p> Initial: 
+     * <p> Final: 
+     *
+     */
+    
+     public boolean grainAhead() {
+         move();
+         if ( onGrain() ) {
+             turn180();
+             move();
+             turn180();
+             return true;
+         } else {
+             turn180();
+             move();
+             turn180();
+             return false;
+         }
+     }
 }
