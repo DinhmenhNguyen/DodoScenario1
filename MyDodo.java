@@ -36,8 +36,8 @@ public class MyDodo extends Dodo
      * Test if Dodo can move forward, (there are no obstructions
      *    or end of world in the cell in front of her).
      * 
-     * <p> Initial: Dodo is somewhere in the world
-     * <p> Final:   Same as initial situation
+     * <p> Initial: No requirements
+     * <p> Final: equal to initial situation
      * 
      * @return boolean true if Dodo can move (no obstructions ahead)
      *                 false if Dodo can't move
@@ -80,9 +80,10 @@ public class MyDodo extends Dodo
     /**
      * Move given number of cells forward in the current direction.
      * 
-     * <p> Initial: Distance filled is smaller than distance to the
-     *              nearest border
-     * <p> Final: Jumped towards given input cells in the same direction
+     * <p> Initial: No requirements
+     * <p> Final: If possible, Dodo has taken 'distance' nr of steps in the
+     *            direction she is facing. If 'distance' is too large, then
+     *            Dodo stops at the edge of the world and error shown
      * 
      * @param   int distance: the number of steps made
      */
@@ -100,9 +101,10 @@ public class MyDodo extends Dodo
     /**
      * Walks to edge of the world printing the coordinates at each step
      * 
-     * <p> Initial: Dodo is on West side of world facing East.
-     * <p> Final:   Dodo is on East side of world facing East.
-     *              Coordinates of each cell printed in the console.
+     * <p> Initial: Mimi on the West side, facing east.
+     * <p> Final:   Mimi on the East side, facing East. Coordinates of each cell
+     *              printed in console
+     *
      */
 
     public void walkToWorldEdgePrintingCoordinates( ){
@@ -135,8 +137,8 @@ public class MyDodo extends Dodo
     /**
      * Turn 180 degrees from current position
      * 
-     * <p> Initial: Dodo is facing any direction in the world
-     * <p> Final: Dodo is facing the opposite direction from before
+     * <p> Initial: No requirements
+     * <p> Final: Dodo is in the same cell, facing the opposite direction
      * 
      */
     
@@ -149,9 +151,6 @@ public class MyDodo extends Dodo
      * Jumps over a fence by turning and moving
      * 
      * <p> Initial: Dodo is facing a fence anywhere in the world
-     *              Dodo turns left and moves forward once
-     *              Dodo turns right and moves forward twice
-     *              Dodo turns right and moves forward once and turns left
      * <p> Final: Dodo is on the opposite side of the fence from before
      * 
      */
@@ -174,9 +173,8 @@ public class MyDodo extends Dodo
      * walking forward and back
      *
      *    
-     * <p> Initial: Dodo is facing a grain anywhere in the world
-     * <p> Final: Dodo goes forward one cell and back one cell and gives back
-     *            a boolean if there was a grain infront of him
+     * <p> Initial: No requirements
+     * <p> Final: equal to initial situation
      *
      */
     
