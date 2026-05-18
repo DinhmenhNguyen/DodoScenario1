@@ -193,7 +193,7 @@ public class MyDodo extends Dodo
          }
      }
      
-     /**
+    /**
       * Walks forward untill it is ontop of an egg
       * 
       * <p> Initial: An egg lies x cells ahead of Dodo. The cells between Dodo
@@ -207,4 +207,20 @@ public class MyDodo extends Dodo
              move();
          }
      }
+     
+    /**
+     * Turns back and moves towards edge of the world and turns back around
+     * 
+     * <p> Initial: Dodo is somewhere in the world
+     * <p> Final: Dodo is at the start of the world and is facing equal to 
+     *            initial situation
+     * 
+     */
+    public void goBackToStartOfRowAndFaceBack( ) {
+        turn180();
+        while ( ! borderAhead() ) {
+            move();
+        }
+        turn180();
+    }
 }
