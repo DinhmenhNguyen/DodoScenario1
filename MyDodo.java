@@ -194,4 +194,19 @@ public class MyDodo extends Dodo
              return false;
          }
      }
+     
+     /**
+      * Walks forward untill it is ontop of an egg
+      * 
+      * <p> Initial: An egg lies x cells ahead of Dodo. The cells between Dodo
+      *              and the egg are empty
+      * <p> Final: Dodo is standing on top of the egg. Dodo is facing the
+      *            original direction
+      * 
+      */
+     public void goToEgg() {
+         while ( ! onEgg() && !borderAhead() ) {
+             move();
+         }
+     }
 }
