@@ -223,4 +223,21 @@ public class MyDodo extends Dodo
         }
         turn180();
     }
+    
+    /**
+     * Walks to edge of the world while jumping over fences IF there are 
+     * fences obstructing the way
+     * 
+     * <p> Initial: No requirements
+     * <p> Final: Is at the edge of the world facing the same direction as
+     *            as initial situation
+     */
+    public void walkToWorldEdgeClimbingOverFences() {
+        while( ! borderAhead() ) {
+            move();
+            if( fenceAhead() ) {
+                jumpOverFence();
+            }
+        }
+    }
 }
