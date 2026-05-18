@@ -228,7 +228,7 @@ public class MyDodo extends Dodo
      * Walks to edge of the world while jumping over fences IF there are 
      * fences obstructing the way
      * 
-     * <p> Initial: No requirements
+     * <p> Initial: Dodo is anywhere in the world with fences
      * <p> Final: Is at the edge of the world facing the same direction as
      *            as initial situation
      */
@@ -237,6 +237,24 @@ public class MyDodo extends Dodo
             move();
             if( fenceAhead() ) {
                 jumpOverFence();
+            }
+        }
+    }
+    
+    /**
+     * Walks to edge of the world while picking up grains and printing
+     * their coordinates in the console
+     * 
+     * <p> Initial: Dodo is anywhere in the world with grains
+     * <p> Final: 
+     * 
+     */
+    public void pickUpGrainsaAndPrintCoordinates() {
+        while( ! borderAhead() ) {
+            move();
+            if (onGrain()) {
+                System.out.println (super.getX()+ ", " + super.getY());
+                pickUpGrain();
             }
         }
     }
