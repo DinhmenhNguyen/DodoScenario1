@@ -174,8 +174,9 @@ public class MyDodo extends Dodo
      * walking forward and back
      *
      *    
-     * <p> Initial: 
-     * <p> Final: 
+     * <p> Initial: Dodo is facing a grain anywhere in the world
+     * <p> Final: Dodo goes forward one cell and back one cell and gives back
+     *            a boolean if there was a grain infront of him
      *
      */
     
