@@ -107,9 +107,8 @@ public class MyDodo extends Dodo
      *
      */
 
-    public void walkToWorldEdgePrintingCoordinates( ){
+    public void walkToWorldEdge( ){
         while( ! borderAhead() && ! fenceAhead() ){
-            System.out.println (super.getX()+ ", " + super.getY());
             move();
         }
     }
@@ -180,17 +179,13 @@ public class MyDodo extends Dodo
     
      public boolean grainAhead() {
          move();
+         boolean steppedOnGrain = false;
          if ( onGrain() ) {
-             turn180();
-             move();
-             turn180();
-             return true;
-         } else {
-             turn180();
-             move();
-             turn180();
-             return false;
+              steppedOnGrain=true;
          }
+         stepOneCellBackwards();
+         return steppedOnGrain;
+         
      }
      
     /**
@@ -203,7 +198,7 @@ public class MyDodo extends Dodo
       * 
       */
      public void goToEgg() {
-         while ( ! onEgg() && !borderAhead() ) {
+         while ( ! onEgg() && ! borderAhead() ) {
              move();
          }
      }
@@ -246,7 +241,8 @@ public class MyDodo extends Dodo
      * their coordinates in the console
      * 
      * <p> Initial: Dodo is anywhere in the world with grains
-     * <p> Final: 
+     * <p> Final: Dodo reaches the edge of the world or against a
+     *     fence and prints all the picked up grains in the console
      * 
      */
     public void pickUpGrainsaAndPrintCoordinates() {
@@ -258,4 +254,18 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
+    /**
+     * Steps one cell backwards
+     * 
+     * <p> Initial: No requirements
+     * <p> Final: Dodo takes one step backwards
+     * 
+     */
+    public void stepOneCellBackwards() {
+        turn180();
+        move();
+        turn180();
+    }
+
 }
