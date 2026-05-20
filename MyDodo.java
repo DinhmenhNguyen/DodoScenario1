@@ -213,9 +213,7 @@ public class MyDodo extends Dodo
      */
     public void goBackToStartOfRowAndFaceBack( ) {
         turn180();
-        while ( ! borderAhead() ) {
-            move();
-        }
+        walkToWorldEdge();
         turn180();
     }
     
@@ -267,5 +265,24 @@ public class MyDodo extends Dodo
         move();
         turn180();
     }
-
+    
+    /**
+     * Walks to edge of the world while laying eggs in empty nests
+     * 
+     * <p> Initial: Dodo is anywhere in the world with empty nests
+     * <p> Final: Dodo is at the edge of the world and has filled
+     *            the nests on the way which were empty
+     * 
+     */
+    public void walkToWorldEdgeLayEggsInEmptyNest() {
+        while( ! borderAhead() ) {
+            move();
+            if (onNest()) {
+                if(canLayEgg()) {
+                    layEgg();
+                }
+            }
+        }
+    }
 }
+
