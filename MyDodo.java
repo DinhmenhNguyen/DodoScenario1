@@ -275,7 +275,7 @@ public class MyDodo extends Dodo
      * 
      */
     public void walkToWorldEdgeLayEggsInEmptyNest() {
-        while( ! borderAhead() ) {
+        while( ! borderAhead() && ! fenceAhead() ) {
             move();
             if (onNest()) {
                 if(canLayEgg()) {
@@ -283,6 +283,25 @@ public class MyDodo extends Dodo
                 }
             }
         }
+    }
+    
+        /**
+     * Walks to edge of the world while jumping over fences IF there are 
+     * fences obstructing the way
+     * 
+     * <p> Initial: Dodo is anywhere in the world with fences and a nest
+     * <p> Final: Dodo is standing on the nest with a egg it laid.
+     * 
+     */
+    public void walkToEmptyNestClimbingOverFences() {
+        while( ! onNest() ) {
+            if( fenceAhead() ) {
+                jumpOverFence();
+            } else {
+                move();
+            }
+        }
+        layEgg();
     }
 }
 
