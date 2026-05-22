@@ -303,5 +303,27 @@ public class MyDodo extends Dodo
         }
         layEgg();
     }
+    
+    /**
+     * Walks around a fenced area and stops when standing on the egg
+     * 
+     * <p> Initial: Dodo is anywhere in the world with a fenced area
+     * <p> Final: Dodo has walked around a fenced area and is standing on the Egg
+     * 
+     */
+    public void walkAroundFencedArea() {
+        while( ! onEgg() ) {
+            if(canMove() && ! onEgg() ) {
+                turnRight();
+                if(canMove() ) {
+                    move();
+                }
+            } else {
+                turnLeft();
+                move();
+            }
+        }
+        
+    }
 }
 
