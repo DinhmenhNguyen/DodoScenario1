@@ -344,5 +344,28 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
+    /**
+     * Walks towards the nest in a maze of fences 
+     * 
+     * <p> Initial: Is standing anywhere in a maze of fences with a possible way to the nest
+     * <p> Final: Is standing on the nest after traversing through the maze
+     * 
+     */
+    public void walkToNestInFenceMaze() {
+        while( ! onNest()) {
+            if(canMove() && ! fenceAhead() || nestAhead()) {
+                move();
+                if(onNest()) {
+                    showCompliment("Congratulations!! You've found the nest.");
+                }
+            } else {
+                turnRight();
+                if(fenceAhead()) {
+                    turn180();
+                }
+            }
+        }
+    }
 }
 
