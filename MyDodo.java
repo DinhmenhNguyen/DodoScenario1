@@ -354,18 +354,27 @@ public class MyDodo extends Dodo
      */
     public void walkToNestInFenceMaze() {
         while( ! onNest()) {
-            if(canMove() && ! fenceAhead() || nestAhead()) {
+            turnRight();
+            if(canMove()) {
                 move();
-                if(onNest()) {
-                    showCompliment("Congratulations!! You've found the nest.");
-                }
             } else {
-                turnRight();
-                if(fenceAhead()) {
-                    turn180();
+                turnLeft();
+                if(canMove()) {
+                    move();
+                } else {
+                    turnLeft();
+                        if(canMove()) {
+                        move();
+                        } else {
+                        turn180();
+                        if(canMove()) {
+                        move();
+                        }
+                    }
                 }
             }
         }
+        showCompliment("Congratulations!! You've found the nest.");
     }
 }
 
