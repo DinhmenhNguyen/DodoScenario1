@@ -323,7 +323,26 @@ public class MyDodo extends Dodo
                 move();
             }
         }
-        
+    }
+    
+    /**
+     * Walks on a trail of eggs and stops once on the nest
+     * 
+     * <p> Initial: Is standing next to a trail of eggs
+     * <p> Final: Is standing on the next at the end of the trail of eggs
+     * 
+     */
+    public void eggTrailToNest() {
+        while( ! onNest()) {
+                if(canMove() && eggAhead() || nestAhead()) {
+                move();
+            } else {
+                turnRight();
+                if(! eggAhead()) {
+                    turn180();
+                }
+            }
+        }
     }
 }
 
