@@ -10,8 +10,8 @@ public class MyDodo extends Dodo
     private int myNrOfEggsHatched;
     
     int tijdelijkeWaardeEi;
-    BlueEgg waardeBlauweEi;
-    GoldenEgg waardeGoudenEi;
+    BlueEgg waardeBlauweEi = new BlueEgg();
+    GoldenEgg waardeGoudenEi = new GoldenEgg();
     
     /**
      * The value for the blue and golden egg swaps
