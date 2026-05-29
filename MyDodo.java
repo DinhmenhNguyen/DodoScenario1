@@ -512,5 +512,13 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
+    /**
+     * Tells u if the written coordinates are correct to the corresponding coordinates
+     * 
+     */
+    public boolean validCoordinates( int x, int y ) {
+        return getX() == x && getY() == y;
+    }
 }
 
