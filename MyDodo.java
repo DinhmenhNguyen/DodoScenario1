@@ -523,6 +523,13 @@ public class MyDodo extends Dodo
         return getX() == x && getY() == y;
     }
     
+    /**
+     * Counts all the eggs Dodo walks over
+     * 
+     * <p> Initial: Dodo is standing anywhere in the world with eggs
+     * <p> Final: Dodo is at the end of the row of the eggs and counts all the eggs
+     * 
+     */
     public void countEggsInRow() {
         goBackToStartOfRowAndFaceBack();
         while(! onNest()) {
