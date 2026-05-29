@@ -339,7 +339,6 @@ public class MyDodo extends Dodo
         }
     }
     
-    int eggsSteppedOn;
     /**
      * Walks on a trail of eggs and stops once on the nest
      * 
@@ -351,7 +350,6 @@ public class MyDodo extends Dodo
         while( ! onNest()) {
                 if(canMove() && eggAhead() || nestAhead()) {
                 move();
-                eggsSteppedOn++;
             } else {
                 turnRight();
                 if(! eggAhead()) {
@@ -531,11 +529,15 @@ public class MyDodo extends Dodo
      * 
      */
     public void countEggsInRow() {
+        int numberOfEggs = 0;
         goBackToStartOfRowAndFaceBack();
-        while(! onNest()) {
-            eggTrailToNest();
+        while(canMove()) {
+           move();
+           if(onEgg()) {
+               numberOfEggs++;
+           }
         }
-        showCompliment("You've stepped on " + eggsSteppedOn + " Eggs.");
+        showCompliment("You've stepped on " + numberOfEggs + " Eggs.");
     }
     
     int layEggsAmount = 0;
@@ -547,6 +549,9 @@ public class MyDodo extends Dodo
      * 
      */
     public void layTrailOfEggs(int n) {
+        if(n <1) {
+            showError("Te weinig eieren");
+        }
         while(layEggsAmount < n) {
             layEgg();
             if(canMove()) {
