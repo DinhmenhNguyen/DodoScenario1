@@ -562,8 +562,10 @@ public class MyDodo extends Dodo
     }
     
     /**
+     * Dodo goes through the entire world and counts all the eggs
      * 
-     * 
+     * <p> Initial: Dodo is standing anywhere in the world
+     * <p> Final: Dodo is at the end of the world at the bottom and has counted every egg in the world
      * 
      */
     public void countAllEggsInWorld() {
