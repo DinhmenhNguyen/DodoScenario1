@@ -378,30 +378,66 @@ public class MyDodo extends Dodo
     }
     
     
+    /**
+     * Mimi faces north
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing north
+     * 
+     */
     public void faceNorth() {
         while(getDirection() != NORTH){
             turnRight();
         }
     }
     
+    /**
+     * Mimi faces east
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing east
+     * 
+     */
     public void faceEast() {
         while(getDirection() != EAST){
             turnRight();
         }
     }
     
+    /**
+     * Mimi faces south
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing south
+     * 
+     */
     public void faceSouth() {
         while(getDirection() != SOUTH){
             turnRight();
         }
     }
     
+    
+    /**
+     * Mimi faces west
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing west
+     * 
+     */
     public void faceWest() {
         while(getDirection() != WEST){
             turnRight();
         }
     }
     
+    /**
+     * Mimi faces direction
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing the direction that is given by the user
+     * 
+     */
     public void faceDirection(int faceDirection) {
         int direction = 0;
         while(direction < faceDirection) {
