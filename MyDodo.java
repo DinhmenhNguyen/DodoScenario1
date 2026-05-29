@@ -528,7 +528,7 @@ public class MyDodo extends Dodo
      * <p> Final: Dodo is at the end of the row of the eggs and counts all the eggs
      * 
      */
-    public void countEggsInRow() {
+    public int countEggsInRow() {
         int numberOfEggs = 0;
         goBackToStartOfRowAndFaceBack();
         while(canMove() && ! borderAhead()) {
@@ -538,6 +538,7 @@ public class MyDodo extends Dodo
            }
         }
         showCompliment("You've stepped on " + numberOfEggs + " Eggs.");
+        return numberOfEggs;
     }
     
     /**
