@@ -455,5 +455,48 @@ public class MyDodo extends Dodo
             System.out.println("Deze directie bestaat niet.");
         }
     }
+    
+    /**
+     * Shows if Dodo has reached the destination
+     * 
+     * <p> Initial: no requirements
+     * 
+     */
+    public boolean locationReached(int x, int y) {
+        return getX() == x && getY() == y;
+    }
+    
+    /**
+     * Mimi goes to given location
+     * 
+     * <p> Initial: Mimi is standing anywhere in the world
+     * <p> Final: Mimi is standing on given location
+     * 
+     */
+    public void goToLocation(int x, int y) {
+        while( ! locationReached(x, y)) {
+            if(getX() < x) {
+                faceEast();
+                if(canMove()) {
+                    move();
+                }
+            } else if(getX() > x) {
+                faceWest();
+                if(canMove()) {
+                    move();
+                }
+            } else if(getY() < y) {
+                faceSouth();
+                if(canMove()) {
+                    move();
+                }
+            } else if(getY() > y) {
+                faceNorth();
+                if(canMove()) {
+                    move();
+                }
+            }
+        }
+    }
 }
 
