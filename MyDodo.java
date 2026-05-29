@@ -58,7 +58,7 @@ public class MyDodo extends Dodo
      *                      (an obstruction or end of world ahead)
      */
     public boolean canMove() {
-        if ( fenceAhead() ){
+        if ( fenceAhead()){
             return false;
         } else {
             return true;
@@ -531,7 +531,7 @@ public class MyDodo extends Dodo
     public void countEggsInRow() {
         int numberOfEggs = 0;
         goBackToStartOfRowAndFaceBack();
-        while(canMove()) {
+        while(canMove() && ! borderAhead()) {
            move();
            if(onEgg()) {
                numberOfEggs++;
@@ -540,7 +540,6 @@ public class MyDodo extends Dodo
         showCompliment("You've stepped on " + numberOfEggs + " Eggs.");
     }
     
-    int layEggsAmount = 0;
     /**
      * Lays an given amount of eggs in a trail
      * 
@@ -549,6 +548,7 @@ public class MyDodo extends Dodo
      * 
      */
     public void layTrailOfEggs(int n) {
+        int layEggsAmount = 0;
         if(n <1) {
             showError("Te weinig eieren");
         }
@@ -559,5 +559,30 @@ public class MyDodo extends Dodo
             }
             layEggsAmount++;
         }
+    }
+    
+    /**
+     * 
+     * 
+     * 
+     */
+    public void countAllEggsInWorld() {
+        int totalEggs = 0;
+        int world = getWorld().getHeight();
+    
+        goToLocation(0,0);
+        faceEast();
+        
+        for (int i = 0; i < getWorld().getHeight(); i++) {
+            goToLocation(0, i);
+            faceEast();
+            while(! borderAhead()) {
+                move();
+                if(onEgg()) {
+                    totalEggs++;
+                }
+            }
+        }
+        System.out.println("Totaal: " + totalEggs + " eieren");
     }
 }
