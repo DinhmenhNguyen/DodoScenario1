@@ -537,5 +537,22 @@ public class MyDodo extends Dodo
         }
         showCompliment("You've stepped on " + eggsSteppedOn + " Eggs.");
     }
+    
+    int layEggsAmount = 0;
+    /**
+     * Lays an given amount of eggs in a trail
+     * 
+     * <p> Initial: Dodo is standing anywhere in the world
+     * <p> Final: Dodo walked a given amount of steps and laid an egg in each cell walked over
+     * 
+     */
+    public void layTrailOfEggs(int n) {
+        while(layEggsAmount < n) {
+            layEgg();
+            if(canMove()) {
+                move();
+            }
+            layEggsAmount++;
+        }
+    }
 }
-
