@@ -376,5 +376,48 @@ public class MyDodo extends Dodo
         }
         showCompliment("Congratulations!! You've found the nest.");
     }
+    
+    
+    public void faceNorth() {
+        while(getDirection() != NORTH){
+            turnRight();
+        }
+    }
+    
+    public void faceEast() {
+        while(getDirection() != EAST){
+            turnRight();
+        }
+    }
+    
+    public void faceSouth() {
+        while(getDirection() != SOUTH){
+            turnRight();
+        }
+    }
+    
+    public void faceWest() {
+        while(getDirection() != WEST){
+            turnRight();
+        }
+    }
+    
+    public void faceDirection(int faceDirection) {
+        int direction = 0;
+        while(direction < faceDirection) {
+            direction++;
+        }
+        if(direction == 0) {
+            faceNorth();
+        } else if(direction == 1) {
+            faceEast();
+        } else if(direction == 2) {
+            faceSouth();
+        } else if(direction == 3) {
+            faceWest();
+        } else {
+            System.out.println("Deze directie bestaat niet.");
+        }
+    }
 }
 
