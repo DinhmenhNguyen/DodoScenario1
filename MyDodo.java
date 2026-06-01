@@ -632,6 +632,13 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Dodo lays eggs in a staircase monument where it gets larger by multiplying the previous number
+     * 
+     * <p> Initial: Dodo is anywhere in the world
+     * <p> Final: Dodo has laid a staircase full of eggs
+     * 
+     */
     public void layEggsInStaircase2() {
         int worldWidth = getWorld().getWidth();
         int eggs = 1;
