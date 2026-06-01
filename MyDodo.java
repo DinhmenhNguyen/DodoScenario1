@@ -651,4 +651,23 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
+    /**
+     * Dodo lays a pyramid of eggs
+     * 
+     * <p> Initial: Dodo is anywhere in the world
+     * <p> Final: Dodo has laid a pyramid of eggs
+     * 
+     */
+    public void pyramidOfEggs() {
+        int height = 12;
+        int width = -1;
+        int eggs = 13;
+        
+        for (int i = 0; i < 6; i++) {
+            goToLocation(width+=1,height-=1);
+            faceEast();
+            layTrailOfEggs(eggs-=2);
+        }
+    }
 }
