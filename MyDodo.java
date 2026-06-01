@@ -615,4 +615,20 @@ public class MyDodo extends Dodo
         goToLocation(0, 0);
         faceEast();
     }
+    
+    /**
+     * Dodo lays eggs in a staircase form as far as possible
+     * 
+     * <p> Initial: Dodo is anywhere in the world
+     * <p> Final: Dodo has laid a staircase full of eggs
+     * 
+     */
+    public void layEggsInStaircase() {
+        int worldHeight = getWorld().getHeight();
+        for(int i = 0; i < worldHeight; i++) {
+            goToLocation(0,i);
+            faceEast();
+            layTrailOfEggs(i+1);
+        }
+    }
 }
