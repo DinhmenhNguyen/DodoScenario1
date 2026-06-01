@@ -537,7 +537,6 @@ public class MyDodo extends Dodo
                numberOfEggs++;
            }
         }
-        showCompliment("You've stepped on " + numberOfEggs + " Eggs.");
         return numberOfEggs;
     }
     
@@ -587,5 +586,33 @@ public class MyDodo extends Dodo
             }
         }
         System.out.println("Totaal: " + totalEggs + " eieren");
+    }
+    
+    /**
+     * Dodo goes through the entire world and counts all the eggs and gives back the row with the most eggs
+     * 
+     * <p> Initial: Dodo is standing anywhere in the world
+     * <p> Final: Dodo is at the end of the world at the bottom and has counted every egg in the world and given back the row with the most eggs
+     * 
+     */
+    public void findRowWithMostEggs() {
+        int worldHeight = getWorld().getHeight();
+        int maxEggs = -1;
+        int mostEggsRow = 0;
+
+        for (int i = 0; i < worldHeight; i++) {
+            goToLocation(0, i);
+            faceEast();
+            int eggRow = countEggsInRow();
+    
+            if (eggRow > maxEggs) {
+                maxEggs = eggRow;
+                mostEggsRow = i;
+            }
+        }
+
+        System.out.println("Rij met de meeste eieren: " + mostEggsRow);
+        goToLocation(0, 0);
+        faceEast();
     }
 }
