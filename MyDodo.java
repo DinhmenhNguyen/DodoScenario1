@@ -631,4 +631,17 @@ public class MyDodo extends Dodo
             layTrailOfEggs(i+1);
         }
     }
+    
+    public void layEggsInStaircase2() {
+        int worldWidth = getWorld().getWidth();
+        int eggs = 1;
+        layEgg();
+        for(int i = 0; i < 4; i++) {
+            goToLocation(0,i+1);
+            faceEast();
+            if(canMove() && !borderAhead() && canLayEgg()) {
+                layTrailOfEggs(eggs *=2);
+            }
+        }
+    }
 }
