@@ -670,4 +670,22 @@ public class MyDodo extends Dodo
             layTrailOfEggs(eggs-=2);
         }
     }
+    
+    /**
+     * 
+     */
+    public double averageEggsPerRow() {
+        int worldHeight = getWorld().getHeight();
+        int eggs = 0;
+        for (int i = 0; i < worldHeight; i++) {
+            goToLocation(0, i);
+            faceEast();
+            eggs += countEggsInRow();
+        }
+        double average = (double) eggs / worldHeight;
+        System.out.println("Gemiddeld aantal eieren per rij: " + average);
+        goToLocation(0, 0);
+        faceEast();
+        return average;
+    }
 }
