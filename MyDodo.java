@@ -672,6 +672,10 @@ public class MyDodo extends Dodo
     }
     
     /**
+     * Dodo counts the average eggs per row
+     * 
+     * <p> Initial: Dodo is anywhere in the world with eggs
+     * <p> Final: Dodo has gone through the whole map and has counted the average eggs per row
      * 
      */
     public double averageEggsPerRow() {
