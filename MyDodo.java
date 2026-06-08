@@ -531,11 +531,14 @@ public class MyDodo extends Dodo
     public int countEggsInRow() {
         int numberOfEggs = 0;
         goBackToStartOfRowAndFaceBack();
+        if(onEgg()) {
+            numberOfEggs++;
+        }
         while(canMove() && ! borderAhead()) {
-           move();
-           if(onEgg()) {
-               numberOfEggs++;
-           }
+            move();
+            if(onEgg()) {
+                numberOfEggs++;
+            }
         }
         return numberOfEggs;
     }
@@ -571,19 +574,10 @@ public class MyDodo extends Dodo
     public void countAllEggsInWorld() {
         int totalEggs = 0;
         int world = getWorld().getHeight();
-    
-        goToLocation(0,0);
-        faceEast();
-        
-        for (int i = 0; i < getWorld().getHeight(); i++) {
+        for (int i = 0; i < world; i++) {
             goToLocation(0, i);
             faceEast();
-            while(! borderAhead()) {
-                move();
-                if(onEgg()) {
-                    totalEggs++;
-                }
-            }
+            totalEggs = totalEggs + countEggsInRow();
         }
         System.out.println("Totaal: " + totalEggs + " eieren");
     }
