@@ -686,4 +686,42 @@ public class MyDodo extends Dodo
         faceEast();
         return average;
     }
+    
+    /**
+     * Dodo checks the whole map and places an egg on the uneven spot
+     * 
+     * <p> Inital: Dodo is anywhere on the map with 1 uneven row/column
+     * <p> Final: Dodo has filled the uneven spot with an egg
+     * 
+     */
+    public void parityTester() {
+        int worldHeight = getWorld().getHeight();
+        int worldWidth = getWorld().getWidth();
+        int savedx = -1;
+        int savedy = -1;
+        for(int i = 0; i < worldHeight; i++) {
+            goToLocation(0, i);
+            faceEast();
+            if(countEggsInRow() % 2 != 0) {
+                savedy = i;
+                System.out.println(savedy);
+            }
+        }
+        
+        for(int i = 0; i < worldWidth; i++) {
+            goToLocation(i, 0);
+            faceSouth();
+            if(countEggsInRow() % 2 != 0) {
+                savedx = i;
+                System.out.println(savedx);
+            }
+        }
+        
+        if (savedx != -1 && savedy != -1) {
+            goToLocation(savedx, savedy);
+            if(canLayEgg()) {
+                layEgg();
+            }
+        }
+    }
 }
