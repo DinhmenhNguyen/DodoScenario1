@@ -470,6 +470,13 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Mimi faces direction
+     * 
+     * <p> Initial: Mimi is facing any direction
+     * <p> Final: Mimi is facing the direction that is given by the user
+     * 
+     */
     public void faceDirectionV2(int faceDirectionV2) {
         if(faceDirectionV2 < 4 && faceDirectionV2 >= 0) {
             // bepalen hoe vaak draaien
@@ -523,6 +530,13 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Mimi goes to given location
+     * 
+     * <p> Initial: Mimi is standing anywhere in the world
+     * <p> Final: Mimi is standing on given location
+     * 
+     */
     public void goToLocationV2(int x, int y) {
         while( ! locationReached(x, y)) {
             if(getX() < x) {
@@ -761,6 +775,12 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Checks for direction
+     * 
+     * <p> Inital: Dodo takes a step forward or backwards and goes back
+     * <p> Final: Dodo know its direction and is standing on previous cell
+     */
     public int direction() {
         int previousX = getX();
         int previousY = getY();
@@ -796,6 +816,13 @@ public class MyDodo extends Dodo
         return direction;
     }
     
+    /**
+     * Dodo checks the whole map and places an egg on the uneven spot while not knowing any directions
+     * 
+     * <p> Inital: Dodo is anywhere on the map with 1 uneven row/column
+     * <p> Final: Dodo has filled the uneven spot with an egg
+     * 
+     */
     public void parityTesterWithoutDirection() {
         int worldHeight = getWorld().getHeight();
         int worldWidth = getWorld().getWidth();
