@@ -9,15 +9,15 @@ public class MyDodo extends Dodo
 {
     private int myNrOfEggsHatched;
     
-    int tijdelijkeWaardeEi;
-    BlueEgg waardeBlauweEi = new BlueEgg();
-    GoldenEgg waardeGoudenEi = new GoldenEgg();
-    
     /**
      * The value for the blue and golden egg swaps
      * 
      */
     public void eggValueSwap() {
+        int tijdelijkeWaardeEi;
+        BlueEgg waardeBlauweEi = new BlueEgg();
+        GoldenEgg waardeGoudenEi = new GoldenEgg();
+    
         tijdelijkeWaardeEi = waardeBlauweEi.getValue();
         waardeBlauweEi.setValue(waardeGoudenEi.getValue());
         waardeGoudenEi.setValue(tijdelijkeWaardeEi);
@@ -852,5 +852,12 @@ public class MyDodo extends Dodo
                 layEgg();
             }
         }
+    }
+    
+    /**
+     * 
+     */
+    public void makeListOfSupriseEggs() {
+            
     }
 }
