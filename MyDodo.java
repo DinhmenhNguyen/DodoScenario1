@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
 
 /**
  *
@@ -855,9 +856,36 @@ public class MyDodo extends Dodo
     }
     
     /**
+     * Generate 10 suprise eggs randomly throughout the world.
      * 
+     * <p> Initial: The world has space for 10 more surprise eggs
+     * <p> Final: The world is filled with 10 more surprise eggs than before
      */
-    public void makeListOfSupriseEggs() {
-            
+    public List<SurpriseEgg> makeListOfSurpriseEggs() {
+        return SurpriseEgg.generateListOfSurpriseEggs(10, getWorld());
+    }
+    
+    /**
+     * Prints the coordinates of the egg
+     * 
+     * <p> Initial: The coordinates of the egg hasn't been written in the console
+     * <p> Final: The coordinates of the egg has been written in the console
+     * 
+     * @param egg: You give the egg so you know where the egg is.
+     */
+    public void printCoordinatesOfEgg(Egg egg) {
+        System.out.println(egg.getX() + "X" + egg.getY() + "Y");
+    }
+    
+    /**
+     * Prints each egg in the console
+     * 
+     * <p> Initial: The world has space for 10 more surprise eggs
+     * <p> Final: The world is filled with 10 more surprise eggs than before and each egg is printed in the console
+     */
+    public void makeListOfSurpriseEggsAndPrintCoordinates() {
+        for(Egg egg: makeListOfSurpriseEggs()) {
+            printCoordinatesOfEgg(egg);
+        }
     }
 }
