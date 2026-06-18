@@ -888,4 +888,21 @@ public class MyDodo extends Dodo
             printCoordinatesOfEgg(egg);
         }
     }
+    
+    /**
+     * Searches for the most valued egg and prints it in the console
+     * 
+     * <p> Initial: World has space for 10 eggs
+     * <p> Final: World has compared all 10 eggs and prints the most valued egg.
+     */
+    public void searchForMostValuedEgg() {
+        List<SurpriseEgg> eggValue = makeListOfSurpriseEggs();
+        int mostValuedEgg = 0;
+        for(Egg egg: eggValue) {
+            if(egg.getValue() > mostValuedEgg) {
+                mostValuedEgg = egg.getValue(); 
+            }
+        }
+        System.out.println(mostValuedEgg + " Is the most valued egg.");
+    }
 }
