@@ -905,4 +905,20 @@ public class MyDodo extends Dodo
         }
         System.out.println(mostValuedEgg + " Is the most valued egg.");
     }
+    
+    /**
+     * Searches for the average value of each egg
+     * 
+     * <p> Inital: World has space for 10 eggs
+     * <p> Final: World has calculated the average for each egg and has printed it
+     */
+    public void searchForAverageValueEgg() {
+        List<SurpriseEgg> eggValue = makeListOfSurpriseEggs();
+        int total = 0;
+        for(Egg egg: eggValue) {
+            total += egg.getValue();
+        }
+        double averageValueEgg = (double)total / eggValue.size();
+        System.out.println(averageValueEgg + " Is the average value for each egg.");
+    }
 }
