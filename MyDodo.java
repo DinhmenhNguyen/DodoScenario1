@@ -932,14 +932,24 @@ public class MyDodo extends Dodo
         int myNrOfStepsTaken = 0;
         while(myNrOfStepsTaken < Mauritius.MAXSTEPS) {
             faceDirection(randomDirection());
-            if(canMove() && !borderAhead()) {
-                move();
-                myNrOfStepsTaken++;
-            } else {
+            if(!canMove() || borderAhead()) {
                 turn180();
-                move();
-                myNrOfStepsTaken++;
             }
+            move();
+            myNrOfStepsTaken++;
+            getScore(Mauritius.MAXSTEPS - myNrOfStepsTaken,0);
         }
+    }
+    
+    /**
+     * Scoreboard updates when taking a step
+     * 
+     * <p> Initial: Scoreboard has 40 moves
+     * <p> Final: Scoreboard has ran through all 40 moves and is 0
+     * 
+     * @param score: you put the scores in the scoreboard
+     */
+    public void getScore(int score1, int score2) {
+        ((Mauritius)getWorld()).updateScore(score1,score2);
     }
 }
