@@ -921,4 +921,25 @@ public class MyDodo extends Dodo
         double averageValueEgg = (double)total / eggValue.size();
         System.out.println(averageValueEgg + " Is the average value for each egg.");
     }
+    
+    /**
+     * Dodo walks randomly around the world for 40 steps
+     * 
+     * <p> Initial: Dodo is standing anywhere in the world
+     * <p> Final: Dodo is standing anywhere in the world and has walked 40 steps
+     */
+    public void moveRandomly() {
+        int myNrOfStepsTaken = 0;
+        while(myNrOfStepsTaken < Mauritius.MAXSTEPS) {
+            faceDirection(randomDirection());
+            if(canMove() && !borderAhead()) {
+                move();
+                myNrOfStepsTaken++;
+            } else {
+                turn180();
+                move();
+                myNrOfStepsTaken++;
+            }
+        }
+    }
 }
