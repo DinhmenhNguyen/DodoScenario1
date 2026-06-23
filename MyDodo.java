@@ -1008,6 +1008,10 @@ public class MyDodo extends Dodo
     }
 
     /**
+     * Dodo goes to the closest egg for 40 steps and then stops
+     * 
+     * <p> Initial: Dodo is in a world with eggs
+     * <p> Final: Dodo has walked 40 or less steps and has taken most or all of the eggs
      * 
      */
     public void dodoRace() {
