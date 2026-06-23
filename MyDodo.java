@@ -9,7 +9,7 @@ import java.util.List;
 public class MyDodo extends Dodo
 {
     private int myNrOfEggsHatched;
-    
+
     /**
      * The value for the blue and golden egg swaps
      * 
@@ -18,7 +18,7 @@ public class MyDodo extends Dodo
         int tijdelijkeWaardeEi;
         BlueEgg waardeBlauweEi = new BlueEgg();
         GoldenEgg waardeGoudenEi = new GoldenEgg();
-    
+
         tijdelijkeWaardeEi = waardeBlauweEi.getValue();
         waardeBlauweEi.setValue(waardeGoudenEi.getValue());
         waardeGoudenEi.setValue(tijdelijkeWaardeEi);
@@ -82,7 +82,7 @@ public class MyDodo extends Dodo
             showError( "There was no egg in this cell" );
         }
     }
-    
+
     /**
      * Returns the number of eggs Dodo has hatched so far.
      * 
@@ -91,7 +91,7 @@ public class MyDodo extends Dodo
     public int getNrOfEggsHatched() {
         return myNrOfEggsHatched;
     }
-    
+
     /**
      * Move given number of cells forward in the current direction.
      * 
@@ -107,12 +107,12 @@ public class MyDodo extends Dodo
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
             move();                         // take a step
             nrStepsTaken++;                 // increment the counter
-            
+
             // compliments steps taken
             System.out.println ("moved " + nrStepsTaken + " cell(s) foward");
         }
     }
-    
+
     /**
      * Walks to edge of the world printing the coordinates at each step
      * 
@@ -147,7 +147,7 @@ public class MyDodo extends Dodo
             return true;
         }
     }
-    
+
     /**
      * Turn 180 degrees from current position
      * 
@@ -155,12 +155,12 @@ public class MyDodo extends Dodo
      * <p> Final: Dodo is in the same cell, facing the opposite direction
      * 
      */
-    
+
     public void turn180( ){
         turnRight();
         turnRight();
     }
-    
+
     /**
      * Jumps over a fence by turning and moving
      * 
@@ -168,7 +168,7 @@ public class MyDodo extends Dodo
      * <p> Final: Dodo is on the opposite side of the fence from before
      * 
      */
-    
+
     public void jumpOverFence( ) {
         if ( fenceAhead() ) {
             turnLeft();
@@ -181,7 +181,7 @@ public class MyDodo extends Dodo
             turnLeft();
         }
     }
-    
+
     /**
      * Checks if there is a grain ahead of the dodo by,
      * walking forward and back
@@ -191,33 +191,33 @@ public class MyDodo extends Dodo
      * <p> Final: equal to initial situation
      *
      */
-    
-     public boolean grainAhead() {
-         move();
-         boolean steppedOnGrain = false;
-         if ( onGrain() ) {
-              steppedOnGrain=true;
-         }
-         stepOneCellBackwards();
-         return steppedOnGrain;
-         
-     }
-     
+
+    public boolean grainAhead() {
+        move();
+        boolean steppedOnGrain = false;
+        if ( onGrain() ) {
+            steppedOnGrain=true;
+        }
+        stepOneCellBackwards();
+        return steppedOnGrain;
+
+    }
+
     /**
-      * Walks forward untill it is ontop of an egg
-      * 
-      * <p> Initial: An egg lies x cells ahead of Dodo. The cells between Dodo
-      *              and the egg are empty
-      * <p> Final: Dodo is standing on top of the egg. Dodo is facing the
-      *            original direction
-      * 
-      */
-     public void goToEgg() {
-         while ( ! onEgg() && ! borderAhead() ) {
-             move();
-         }
-     }
-     
+     * Walks forward untill it is ontop of an egg
+     * 
+     * <p> Initial: An egg lies x cells ahead of Dodo. The cells between Dodo
+     *              and the egg are empty
+     * <p> Final: Dodo is standing on top of the egg. Dodo is facing the
+     *            original direction
+     * 
+     */
+    public void goToEgg() {
+        while ( ! onEgg() && ! borderAhead() ) {
+            move();
+        }
+    }
+
     /**
      * Turns back and moves towards edge of the world and turns back around
      * 
@@ -231,7 +231,7 @@ public class MyDodo extends Dodo
         walkToWorldEdge();
         turn180();
     }
-    
+
     /**
      * Walks to edge of the world while jumping over fences IF there are 
      * fences obstructing the way
@@ -248,7 +248,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Walks to edge of the world while picking up grains and printing
      * their coordinates in the console
@@ -267,7 +267,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Steps one cell backwards
      * 
@@ -280,7 +280,7 @@ public class MyDodo extends Dodo
         move();
         turn180();
     }
-    
+
     /**
      * Walks to edge of the world while laying eggs in empty nests
      * 
@@ -299,8 +299,8 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
-        /**
+
+    /**
      * Walks to edge of the world while jumping over fences IF there are 
      * fences obstructing the way
      * 
@@ -318,7 +318,7 @@ public class MyDodo extends Dodo
         }
         layEgg();
     }
-    
+
     /**
      * Walks around a fenced area and stops when standing on the egg
      * 
@@ -339,7 +339,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Walks on a trail of eggs and stops once on the nest
      * 
@@ -349,7 +349,7 @@ public class MyDodo extends Dodo
      */
     public void eggTrailToNest() {
         while( ! onNest()) {
-                if(canMove() && eggAhead() || nestAhead()) {
+            if(canMove() && eggAhead() || nestAhead()) {
                 move();
             } else {
                 turnRight();
@@ -359,7 +359,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Walks towards the nest in a maze of fences 
      * 
@@ -378,12 +378,12 @@ public class MyDodo extends Dodo
                     move();
                 } else {
                     turnLeft();
-                        if(canMove()) {
+                    if(canMove()) {
                         move();
-                        } else {
+                    } else {
                         turn180();
                         if(canMove()) {
-                        move();
+                            move();
                         }
                     }
                 }
@@ -391,8 +391,7 @@ public class MyDodo extends Dodo
         }
         showCompliment("Congratulations!! You've found the nest.");
     }
-    
-    
+
     /**
      * Mimi faces north
      * 
@@ -405,7 +404,7 @@ public class MyDodo extends Dodo
             turnRight();
         }
     }
-    
+
     /**
      * Mimi faces east
      * 
@@ -418,7 +417,7 @@ public class MyDodo extends Dodo
             turnRight();
         }
     }
-    
+
     /**
      * Mimi faces south
      * 
@@ -431,8 +430,7 @@ public class MyDodo extends Dodo
             turnRight();
         }
     }
-    
-    
+
     /**
      * Mimi faces west
      * 
@@ -445,7 +443,7 @@ public class MyDodo extends Dodo
             turnRight();
         }
     }
-    
+
     /**
      * Mimi faces direction
      * 
@@ -470,7 +468,7 @@ public class MyDodo extends Dodo
             System.out.println("Deze directie bestaat niet.");
         }
     }
-    
+
     /**
      * Mimi faces direction
      * 
@@ -487,7 +485,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Shows if Dodo has reached the destination
      * 
@@ -497,7 +495,10 @@ public class MyDodo extends Dodo
     public boolean locationReached(int x, int y) {
         return getX() == x && getY() == y;
     }
-    
+
+    private int stepsTaken = Mauritius.MAXSTEPS;
+    private int myNrOfEggs = 0;
+
     /**
      * Mimi goes to given location
      * 
@@ -506,31 +507,42 @@ public class MyDodo extends Dodo
      * 
      */
     public void goToLocation(int x, int y) {
+        int myNrOfStepsTaken = 0;
+        int dist = Math.abs(getX() - x) + Math.abs(getY() - y);
+        if(stepsTaken - dist < 0) {
+            stepsTaken = -1;
+            return;
+        }
         while( ! locationReached(x, y)) {
             if(getX() < x) {
                 faceEast();
                 if(canMove()) {
                     move();
+                    stepsTaken -= 1;
                 }
             } else if(getX() > x) {
                 faceWest();
                 if(canMove()) {
                     move();
+                    stepsTaken -= 1;
                 }
             } else if(getY() < y) {
                 faceSouth();
                 if(canMove()) {
                     move();
+                    stepsTaken -= 1;
                 }
             } else if(getY() > y) {
                 faceNorth();
                 if(canMove()) {
                     move();
+                    stepsTaken -= 1;
                 }
             }
+            getScore(stepsTaken, myNrOfEggs);
         }
     }
-    
+
     /**
      * Mimi goes to given location
      * 
@@ -563,7 +575,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Tells u if the written coordinates are correct to the corresponding coordinates
      * 
@@ -571,7 +583,7 @@ public class MyDodo extends Dodo
     public boolean validCoordinates( int x, int y ) {
         return getX() == x && getY() == y;
     }
-    
+
     /**
      * Counts all the eggs Dodo walks over
      * 
@@ -593,7 +605,7 @@ public class MyDodo extends Dodo
         }
         return numberOfEggs;
     }
-    
+
     /**
      * Lays an given amount of eggs in a trail
      * 
@@ -614,7 +626,7 @@ public class MyDodo extends Dodo
             layEggsAmount++;
         }
     }
-    
+
     /**
      * Dodo goes through the entire world and counts all the eggs
      * 
@@ -632,7 +644,7 @@ public class MyDodo extends Dodo
         }
         System.out.println("Totaal: " + totalEggs + " eieren");
     }
-    
+
     /**
      * Dodo goes through the entire world and counts all the eggs and gives back the row with the most eggs
      * 
@@ -649,7 +661,7 @@ public class MyDodo extends Dodo
             goToLocation(0, i);
             faceEast();
             int eggRow = countEggsInRow();
-    
+
             if (eggRow > maxEggs) {
                 maxEggs = eggRow;
                 mostEggsRow = i;
@@ -660,7 +672,7 @@ public class MyDodo extends Dodo
         goToLocation(0, 0);
         faceEast();
     }
-    
+
     /**
      * Dodo lays eggs in a staircase form as far as possible
      * 
@@ -676,7 +688,7 @@ public class MyDodo extends Dodo
             layTrailOfEggs(i+1);
         }
     }
-    
+
     /**
      * Dodo lays eggs in a staircase monument where it gets larger by multiplying the previous number
      * 
@@ -696,7 +708,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Dodo lays a pyramid of eggs
      * 
@@ -708,14 +720,14 @@ public class MyDodo extends Dodo
         int height = 12;
         int width = -1;
         int eggs = 13;
-        
+
         for (int i = 0; i < 6; i++) {
             goToLocation(width+=1,height-=1);
             faceEast();
             layTrailOfEggs(eggs-=2);
         }
     }
-    
+
     /**
      * Dodo counts the average eggs per row
      * 
@@ -737,7 +749,7 @@ public class MyDodo extends Dodo
         faceEast();
         return average;
     }
-    
+
     /**
      * Dodo checks the whole map and places an egg on the uneven spot
      * 
@@ -758,7 +770,7 @@ public class MyDodo extends Dodo
                 System.out.println(savedy);
             }
         }
-        
+
         for(int i = 0; i < worldWidth; i++) {
             goToLocation(i, 0);
             faceSouth();
@@ -767,7 +779,7 @@ public class MyDodo extends Dodo
                 System.out.println(savedx);
             }
         }
-        
+
         if (savedx != -1 && savedy != -1) {
             goToLocation(savedx, savedy);
             if(canLayEgg()) {
@@ -775,7 +787,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Checks for direction
      * 
@@ -786,7 +798,7 @@ public class MyDodo extends Dodo
         int previousX = getX();
         int previousY = getY();
         int direction = -1;
-        
+
         if(borderAhead()) {
             stepOneCellBackwards();
             previousX = getX();
@@ -816,7 +828,7 @@ public class MyDodo extends Dodo
         }
         return direction;
     }
-    
+
     /**
      * Dodo checks the whole map and places an egg on the uneven spot while not knowing any directions
      * 
@@ -837,7 +849,7 @@ public class MyDodo extends Dodo
                 System.out.println(savedy);
             }
         }
-        
+
         for(int i = 0; i < worldWidth; i++) {
             goToLocationV2(i,0);
             faceDirectionV2(2);
@@ -846,7 +858,7 @@ public class MyDodo extends Dodo
                 System.out.println(savedx);
             }
         }
-        
+
         if (savedx != -1 && savedy != -1) {
             goToLocation(savedx, savedy);
             if(canLayEgg()) {
@@ -854,7 +866,7 @@ public class MyDodo extends Dodo
             }
         }
     }
-    
+
     /**
      * Generate 10 suprise eggs randomly throughout the world.
      * 
@@ -864,7 +876,7 @@ public class MyDodo extends Dodo
     public List<SurpriseEgg> makeListOfSurpriseEggs() {
         return SurpriseEgg.generateListOfSurpriseEggs(10, getWorld());
     }
-    
+
     /**
      * Prints the coordinates of the egg
      * 
@@ -876,7 +888,7 @@ public class MyDodo extends Dodo
     public void printCoordinatesOfEgg(Egg egg) {
         System.out.println(egg.getX() + "X" + egg.getY() + "Y");
     }
-    
+
     /**
      * Places all the Egg objects in the world in a list.
      * 
@@ -885,7 +897,7 @@ public class MyDodo extends Dodo
     public List<Egg> getListOfEggsInWorld() {
         return getWorld().getObjects(Egg.class);
     }
-    
+
     /**
      * Prints each egg in the console
      * 
@@ -897,7 +909,7 @@ public class MyDodo extends Dodo
             printCoordinatesOfEgg(egg);
         }
     }
-    
+
     /**
      * Searches for the most valued egg and prints it in the console
      * 
@@ -914,7 +926,7 @@ public class MyDodo extends Dodo
         }
         System.out.println(mostValuedEgg + " Is the most valued egg.");
     }
-    
+
     /**
      * Searches for the average value of each egg
      * 
@@ -930,7 +942,7 @@ public class MyDodo extends Dodo
         double averageValueEgg = (double)total / eggValue.size();
         System.out.println(averageValueEgg + " Is the average value for each egg.");
     }
-    
+
     /**
      * Dodo walks randomly around the world for 40 steps
      * 
@@ -949,7 +961,7 @@ public class MyDodo extends Dodo
             getScore(Mauritius.MAXSTEPS - myNrOfStepsTaken,0);
         }
     }
-    
+
     /**
      * Scoreboard updates when taking a step
      * 
@@ -961,7 +973,7 @@ public class MyDodo extends Dodo
     public void getScore(int score1, int score2) {
         ((Mauritius)getWorld()).updateScore(score1,score2);
     }
-    
+
     /**
      * Dodo goes to the nearest egg in the world next to her
      * 
@@ -989,9 +1001,28 @@ public class MyDodo extends Dodo
         }
         if(eggLocation != null) {
             goToLocation(eggLocation.getX(), eggLocation.getY());
-            hatchEgg();
+            myNrOfEggs += eggLocation.getValue();
         } else {
             showError("Er zijn geen eieren!");
         }
+    }
+
+    /**
+     * 
+     */
+    public void dodoRace() {
+        List<Egg> eggs = getListOfEggsInWorld();
+        
+        for(Egg egg : eggs) {
+            pickUpNearestEggInList();
+            if(stepsTaken < 0){
+                return;
+            }
+            if(onEgg()){
+                hatchEgg();
+            }
+            getScore(stepsTaken, myNrOfEggs);
+        }
+        getScore(stepsTaken, myNrOfEggs);
     }
 }
