@@ -1019,9 +1019,6 @@ public class MyDodo extends Dodo
         
         for(Egg egg : eggs) {
             pickUpNearestEggInList();
-            if(stepsTaken < 0){
-                return;
-            }
             if(onEgg()){
                 hatchEgg();
             }
