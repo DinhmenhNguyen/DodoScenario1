@@ -878,6 +878,15 @@ public class MyDodo extends Dodo
     }
     
     /**
+     * Places all the Egg objects in the world in a list.
+     * 
+     * @return List of Egg objects in the world
+     */
+    public List<Egg> getListOfEggsInWorld() {
+        return getWorld().getObjects(Egg.class);
+    }
+    
+    /**
      * Prints each egg in the console
      * 
      * <p> Initial: The world has space for 10 more surprise eggs
@@ -951,5 +960,38 @@ public class MyDodo extends Dodo
      */
     public void getScore(int score1, int score2) {
         ((Mauritius)getWorld()).updateScore(score1,score2);
+    }
+    
+    /**
+     * Dodo goes to the nearest egg in the world next to her
+     * 
+     * <p> Initial: Dodo is in a world with 10 eggs.
+     * <p> Final: Dodo walks to the closest egg and hatches it
+     */
+    public void pickUpNearestEggInList() {
+        List<Egg> eggs = getListOfEggsInWorld();
+        int closestEgg = 10000;
+        Egg eggLocation = null;
+        for(Egg egg: eggs) {
+            int x = getX() - egg.getX();
+            int y = getY() - egg.getY();
+            if(x < 0){
+                x = -x;
+            }
+            if(y < 0){
+                y = -y;
+            }
+            int stappen = x + y;
+            if(stappen < closestEgg) {
+                closestEgg = stappen;
+                eggLocation = egg;
+            }
+        }
+        if(eggLocation != null) {
+            goToLocation(eggLocation.getX(), eggLocation.getY());
+            hatchEgg();
+        } else {
+            showError("Er zijn geen eieren!");
+        }
     }
 }
