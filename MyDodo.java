@@ -509,8 +509,7 @@ public class MyDodo extends Dodo
     public void goToLocation(int x, int y) {
         int myNrOfStepsTaken = 0;
         int dist = Math.abs(getX() - x) + Math.abs(getY() - y);
-        if(stepsTaken - dist < 0) {
-            stepsTaken = -1;
+        if(stepsTaken - dist < 1) {
             return;
         }
         while( ! locationReached(x, y)) {
@@ -541,6 +540,7 @@ public class MyDodo extends Dodo
             }
             getScore(stepsTaken, myNrOfEggs);
         }
+        
     }
 
     /**
@@ -1002,6 +1002,9 @@ public class MyDodo extends Dodo
         if(eggLocation != null) {
             goToLocation(eggLocation.getX(), eggLocation.getY());
             myNrOfEggs += eggLocation.getValue();
+            if(onEgg()){
+                pickUpEgg();
+            }
         } else {
             showError("Er zijn geen eieren!");
         }
@@ -1018,12 +1021,26 @@ public class MyDodo extends Dodo
         List<Egg> eggs = getListOfEggsInWorld();
         
         for(Egg egg : eggs) {
+            checkForGoldenEgg();
             pickUpNearestEggInList();
-            if(onEgg()){
-                hatchEgg();
-            }
             getScore(stepsTaken, myNrOfEggs);
         }
-        getScore(stepsTaken, myNrOfEggs);
+    }
+    
+    /**
+     * Dodo goes for the golden egg if its under 10 steps
+     * 
+     * <p> Initial: Dodo has less or 10 steps
+     * <p> Final: Dodo has grabbed the golden egg
+     */
+    public void checkForGoldenEgg() {
+        List<Egg> eggs = getListOfEggsInWorld();
+        for(Egg egg : eggs) {
+            if(egg.getValue() == 5) {
+                if(stepsTaken < 10) {
+                    goToLocation(egg.getX(), egg.getY());
+                }
+            }
+        }
     }
 }
